@@ -17,14 +17,21 @@ addEventListener('fetch', event => {
     const targetUrl = parameters.get("url");
 
     if (targetUrl === null) {
-      const responseMessage = "Bad usage! http://cors-get-proxy.sirjosh.workers.dev/?url=<put the url here>";
+      const responseMessage =
+        "Bad usage! http://cors-get-proxy.sirjosh.workers.dev/?url=<put the url here>\n" +
+        "Repo at https://github.com/SirJosh3917/cors-get-proxy\n" +
+        "2022-05-26 update: Added `cors-get-proxy.sirjosh.workers.dev` to the User-Agent of this service.";
 
       return new Response(responseMessage, {
         status: 400
       });
     }
 
-    const response = await fetch(targetUrl);
+    const response = await fetch(targetUrl, {
+      headers: {
+        "User-Agent": "cors-get-proxy.sirjosh.workers.dev",
+      },
+    });
     const responseBody = await response.text();
 
     return new Response(responseBody, {
