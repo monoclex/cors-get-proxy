@@ -4,7 +4,7 @@ addEventListener('fetch', event => {
     const request = event.request;
 
     if (request.method !== "GET") {
-      const responseMessage = "This is a GET only cors proxy. See https://github.com/SirJosh3917/cors-get-proxy";
+      const responseMessage = "Cors ByHeru Proxy";
       
       return new Response(responseMessage, {
         status: 405,
@@ -18,9 +18,8 @@ addEventListener('fetch', event => {
 
     if (targetUrl === null) {
       const responseMessage =
-        "Bad usage! http://cors-get-proxy.sirjosh.workers.dev/?url=<put the url here>\n" +
-        "Repo at https://github.com/SirJosh3917/cors-get-proxy\n" +
-        "2022-05-26 update: Added `cors-get-proxy.sirjosh.workers.dev` to the User-Agent of this service.";
+        "Contoh Link http://cors-proxy.byheru-premium.workers.dev/?url=https://example.com\n" +
+        "Tambahkan User Agent `Mozilla/5.0 (iPhone; CPU iPhone OS 13_2_3 seperti Mac OS X) AppleWebKit/605.1.15 (KHTML, seperti Gecko) Versi/13.0.3 Seluler/15E148 Safari/604.1,gzip(gfe)`";
 
       return new Response(responseMessage, {
         status: 400
@@ -29,7 +28,7 @@ addEventListener('fetch', event => {
 
     const response = await fetch(targetUrl, {
       headers: {
-        "User-Agent": "cors-get-proxy.sirjosh.workers.dev",
+        "User-Agent": "Mozilla/5.0 (iPhone; CPU iPhone OS 13_2_3 seperti Mac OS X) AppleWebKit/605.1.15 (KHTML, seperti Gecko) Versi/13.0.3 Seluler/15E148 Safari/604.1,gzip(gfe)",
       },
     });
     const responseBody = await response.text();
