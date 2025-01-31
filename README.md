@@ -8,9 +8,9 @@ This is probably going to get abused to hell and back just like all the other CO
 
 ```js
 const params = new URLSearchParams();
-params.set("url", "https://paste.mod.gg/raw/doneqiwiyu");
+params.set("url", "https://");
 
-const url = new URL(`https://cors-get-proxy.sirjosh.workers.dev/?${params}`);
+const url = new URL(`https://cors-get-proxy.byheru04.workers.dev/?${params}`);
 
 fetch(url)
   .then((response) => response.text())
